@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from .forms import UploadFileForm
+from django.http import HttpResponse
 
 # Create your views here.
 class CharacterExtractor(View):
@@ -16,4 +17,6 @@ class CharacterExtractor(View):
                     destination.write(chunk)
 
             result_list = [{"name": "Kabwama Alvin", "number": 999, "location": "Novia"}]
-            render(request, template_name="data_view.html", content_type={"resultlist": result_list})
+            return render(request, template_name="data_view.html", content_type={"resultlist": result_list})
+        else:
+            return HttpResponse("Not so good!")
