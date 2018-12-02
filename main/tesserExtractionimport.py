@@ -78,7 +78,7 @@ def tesserpredict(img):
     imagepreprocess(img, checker = True)
     tempimg = Image.open('images/temp.png')  
     text = tesserocr.image_to_text(tempimg)
-    print(text)
+    #print(text)
     return text
 
 '''
