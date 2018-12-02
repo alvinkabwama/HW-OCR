@@ -9,6 +9,8 @@ class CharacterExtractor(View):
         return render(request, template_name="image_upload.html")
 
     def post(self, request):
+        form = UploadFileForm(request.POST, request.FILES)
+
 
 
         result_list = ["Whatever is returned from ML"]
