@@ -62,7 +62,7 @@ def numberclean(text):
     
 
 #READ IMAGE AND CHANGE IT TO GRAY SCALE
-img = cv2.imread('images/pyimage.jpg')
+img = cv2.imread('uploads/image.jpg')
 baseimage = img
 img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 baseimagegrayscale = img
