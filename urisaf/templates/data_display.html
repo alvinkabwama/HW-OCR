@@ -48,7 +48,13 @@
       <div class="my-3 p-3 bg-white rounded box-shadow">
         <h4 class="border-bottom border-gray pb-2 mb-0">Urinalysis Results</h4>
         </br>
-        <p>No Results Found</p>
+        {% if analysis_results %}
+          <p>We detected that you are suffering from: <strong>{{ analysis_results.disease_name }}</strong></p>
+          <p>The most affected part is: <strong>{{ analysis_results.affected_parts }}</strong></p>
+          <p>This is more about the disease <strong>{{ analysis_results.other_parameters }}</strong></p>
+        {%else%}
+          <p>No Results Found</p>
+        {% endif %}
         
        
       </div>

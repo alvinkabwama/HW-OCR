@@ -23,10 +23,14 @@ class UrinalysisInput(View):
                 bilirubin=form.cleaned_data['bilirubin'],
                 glucose=form.cleaned_data['glucose']
             )
-        print(input_data)
         return redirect("urisaf-results")
         
 
 class UrinalysisResults(View):
     def get(self, request):
-        return render(request, "data_display.html")
+        analysis_results = dict(
+            disease_name='diseases name',
+            affected_parts='affected parts',
+            other_parameters='others parameters allowed ...'
+        )
+        return render(request, "data_display.html", {'analysis_results': analysis_results})
