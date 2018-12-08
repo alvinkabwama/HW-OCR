@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from .forms import UploadFileForm
 from django.http import HttpResponse
-from . import gridExtraction 
+# from . import gridExtraction 
 
 # Create your views here.
 class CharacterExtractor(View):
@@ -16,7 +16,8 @@ class CharacterExtractor(View):
             for chunk in request.FILES['imagename']:
                 destination.write(chunk)
         
-        headerdict, resultlist = gridExtraction.imageCharacterExtracter('uploads/image.png')              
+        # headerdict, resultlist = gridExtraction.imageCharacterExtracter('uploads/image.png') 
+        headerdict, resultlist = [], []
         #resultlist = [{"name": "Kabwama Alvin", "number": 999, "location": "Novia"}]
         return render(request, template_name="data_view.html", context={"resultlist": resultlist, 'headerdict': headerdict})
         # else:
