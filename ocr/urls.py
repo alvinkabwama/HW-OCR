@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import CharacterExtractor
-from urisaf.views import Urinalysis
+from urisaf.views import UrinalysisInput, UrinalysisResults
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('extract/', CharacterExtractor.as_view()),
-    path('urisaf/', Urinalysis.as_view())
+    path('urisaf/', UrinalysisInput.as_view(), name='urisaf-input'),
+    path('urisaf/results/', UrinalysisResults.as_view(), name='urisaf-results')
 ]
